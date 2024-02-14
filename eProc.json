@@ -10,7 +10,7 @@
                 "tags": [
                     "Dropdown"
                 ],
-                "summary": "Senarai Pembekal, Kategori Pemuitang dan Alamat.",
+                "summary": "Senarai Pembekal berserta Kategori Pemuitang dan Alamat.",
                 "responses": {
                     "200": {
                         "description": "Berjaya",
@@ -46,9 +46,33 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Kategori Pemuitang .",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -58,10 +82,12 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Kategori Pemuitang Mengikut Tahun, Kod Pembekal.",
                 "parameters": [
                     {
                         "name": "Tahun",
                         "in": "path",
+                        "description": "Period Year.",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -71,6 +97,7 @@
                     {
                         "name": "KodPembekal",
                         "in": "path",
+                        "description": "Kod Pembekal",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -79,7 +106,30 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -89,45 +139,118 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Status Permohonan.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/Dropdown/Currency": {
+        "/api/Dropdown/Matawang": {
             "get": {
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Matawang.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/Dropdown/GST": {
+        "/api/Dropdown/Cukai": {
             "get": {
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod, Nama dan Kadar Cukai.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_GST_Output"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/Dropdown/Dana/{GLPeriodYear}": {
+        "/api/Dropdown/Dana/{Tahun}": {
             "get": {
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Dana berserta Bahagian, Unit, Lokasi dan ObjekLanjut mengikut Tahun GL.",
                 "parameters": [
                     {
-                        "name": "GLPeriodYear",
+                        "name": "Tahun",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -138,19 +261,43 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dana_Bahagian_Unit_Lokasi_ObjekLanjut_Output"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/Dropdown/BakiPeruntukan/{GLPeriodYear}/{GLCode}": {
+        "/api/Dropdown/BakiPeruntukan/{TahunGL}/{KodGL}": {
             "get": {
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Baki Peruntukan mengikut Tahun dan Kod GL.",
                 "parameters": [
                     {
-                        "name": "GLPeriodYear",
+                        "name": "TahunGL",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -159,7 +306,7 @@
                         }
                     },
                     {
-                        "name": "GLCode",
+                        "name": "KodGL",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -169,7 +316,28 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -179,21 +347,46 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Jenis Item.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/Dropdown/JenisItem2/{JenisItem1}": {
+        "/api/Dropdown/JenisItem2/{KodJenisItem}": {
             "get": {
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Jenis Item 2 mengikut Jenis Item.",
                 "parameters": [
                     {
-                        "name": "JenisItem1",
+                        "name": "KodJenisItem",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -203,7 +396,30 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -213,30 +429,167 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Jenis Item 2 mengikut Jenis Item.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/Dropdown/Employee": {
+        "/api/Dropdown/Pekerja": {
             "get": {
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai No Staf dan Nama Pekerja.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/Dropdown/EmployeeDetail/{NoStaf}": {
+        "/api/Dropdown/PekerjaByJabatan": {
             "get": {
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai No Staf dan Nama Pekerja mengikut Jabatan pengguna semasa.",
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Dropdown/PekerjaLokasi/{NoStaf}": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "Maklumat Bahagian, Unit dan Lokasi mengikut No Staf.",
                 "parameters": [
                     {
                         "name": "NoStaf",
@@ -249,19 +602,47 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
-        "/api/Dropdown/EmployeeByUserJabatan": {
-            "get": {
-                "tags": [
-                    "Dropdown"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Dropdown_EmployeeDetail_Output"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Dropdown_EmployeeDetail_Output"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Dropdown_EmployeeDetail_Output"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -271,9 +652,59 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Jenis Penyelenggaraan.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -283,9 +714,59 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Cara Perolehan.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -295,9 +776,59 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Klasifikasi.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -307,9 +838,59 @@
                 "tags": [
                     "Dropdown"
                 ],
+                "summary": "Senarai Kod dan Nama Negeri.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Dropdown_String_VM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -319,9 +900,27 @@
                 "tags": [
                     "Login"
                 ],
+                "summary": "Nama Pengguna semasa.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -331,19 +930,10 @@
                 "tags": [
                     "Login"
                 ],
+                "summary": "Token dan Menu untuk Log Masuk Pengguna.",
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/AutoLogin_Input"
-                            }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/AutoLogin_Input"
-                            }
-                        },
-                        "application/*+json": {
                             "schema": {
                                 "$ref": "#/components/schemas/AutoLogin_Input"
                             }
@@ -352,43 +942,122 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AutoLogin_Output"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/RO/List": {
+        "/api/RO/Senarai": {
             "get": {
                 "tags": [
                     "RO"
                 ],
+                "summary": "Senarai RO.",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RO_List_Output"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/RO/ListSokongan": {
+        "/api/RO/SenaraiSokongan": {
             "get": {
                 "tags": [
                     "RO"
                 ],
+                "summary": "Senarai RO mengikut Status (Sokongan) dan Pegawai Penyokong (Pengguna semasa).",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RO_List_Output"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/RO/ListKelulusan": {
+        "/api/RO/SenaraiKelulusan": {
             "get": {
                 "tags": [
                     "RO"
                 ],
+                "summary": "Senarai RO mengikut Status (Kelulusan) dan Kelayakan Amoun (Pengguna semasa).",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RO_List_Output"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -398,6 +1067,7 @@
                 "tags": [
                     "RO"
                 ],
+                "summary": "Maklumat RO mengikut ID.",
                 "parameters": [
                     {
                         "name": "ID",
@@ -411,19 +1081,40 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RO_Detail_Output"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/RO/DetailByLONo/{LONo}": {
+        "/api/RO/DetailByLONo/{NoLO}": {
             "get": {
                 "tags": [
                     "RO"
                 ],
+                "summary": "Maklumat RO mengikut No Lo.",
                 "parameters": [
                     {
-                        "name": "LONo",
+                        "name": "NoLO",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -433,29 +1124,102 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RO_Detail_Output"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/RO/Status": {
-            "put": {
+        "/api/RO/Hantar/{Status}": {
+            "post": {
                 "tags": [
                     "RO"
+                ],
+                "summary": "Simpan RO berserta Status.",
+                "parameters": [
+                    {
+                        "name": "Status",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/LOStatus_Step1_Enum"
+                        }
+                    }
                 ],
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/RO_StatusUpdate_Input"
+                                "$ref": "#/components/schemas/Pemilihan_Syarikat_Input"
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RO_StatusUpdate_Input"
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
                             }
-                        },
-                        "application/*+json": {
+                        }
+                    }
+                }
+            }
+        },
+        "/api/RO/Status/{Status}": {
+            "put": {
+                "tags": [
+                    "RO"
+                ],
+                "summary": "Kemaskini Status RO dan Nota.",
+                "parameters": [
+                    {
+                        "name": "Status",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/LOStatus_Step2_Enum"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/RO_StatusUpdate_Input"
                             }
@@ -464,7 +1228,27 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -474,19 +1258,10 @@
                 "tags": [
                     "RO"
                 ],
+                "summary": "Kemaskini Pembekal dan Kategori Pemuitang.",
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RO_PembekalUpdate_Input"
-                            }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RO_PembekalUpdate_Input"
-                            }
-                        },
-                        "application/*+json": {
                             "schema": {
                                 "$ref": "#/components/schemas/RO_PembekalUpdate_Input"
                             }
@@ -495,48 +1270,27 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
-        "/api/RO/PemilihanSyarikat/{Status}": {
-            "post": {
-                "tags": [
-                    "RO"
-                ],
-                "parameters": [
-                    {
-                        "name": "Status",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/LOStatus_Enum"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Pemilihan_Syarikat_Input"
-                            }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Pemilihan_Syarikat_Input"
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Pemilihan_Syarikat_Input"
+                        "description": "Berjaya"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
                             }
                         }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success"
                     }
                 }
             }
@@ -546,6 +1300,7 @@
                 "tags": [
                     "ROAlamatSerahan"
                 ],
+                "summary": "Senarai Nama dan Lokasi Alamat Serahan.",
                 "parameters": [
                     {
                         "name": "LONo",
@@ -558,19 +1313,43 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ROAlamatSerahan_List_Output"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/RODetail/RODetailList/{LONo}": {
+        "/api/RODetail/SenaraiRODetail/{NoLo}": {
             "get": {
                 "tags": [
                     "RODetail"
                 ],
+                "summary": "Senarai RO Detail mengikut No Lo.",
                 "parameters": [
                     {
-                        "name": "LONo",
+                        "name": "NoLo",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -580,19 +1359,43 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RO_Detail_List_Output"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/ROInventory/ROInventoryList/{LONo}": {
+        "/api/ROInventory/SenaraiROInventory/{NoLo}": {
             "get": {
                 "tags": [
                     "ROInventory"
                 ],
+                "summary": "Maklumat RO Inventory mengikut No Lo.",
                 "parameters": [
                     {
-                        "name": "LONo",
+                        "name": "NoLo",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -602,7 +1405,27 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RO_Detail_Output"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -616,6 +1439,101 @@
                     "noKPEncrypted": {
                         "type": "string",
                         "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AutoLogin_Output": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "menu": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MenuVM"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Bahagian_Output": {
+                "type": "object",
+                "properties": {
+                    "kodBahagian": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "namaBahagian": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "unitList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Unit_Output"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Dana_Bahagian_Unit_Lokasi_ObjekLanjut_Output": {
+                "type": "object",
+                "properties": {
+                    "kodDana": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "namaDana": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bahagianList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Bahagian_Output"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Dropdown_EmployeeDetail_Output": {
+                "type": "object",
+                "properties": {
+                    "bahagian": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "unit": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lokasi": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Dropdown_GST_Output": {
+                "type": "object",
+                "properties": {
+                    "kod": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "nama": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "kadar": {
+                        "type": "number",
+                        "format": "double"
                     }
                 },
                 "additionalProperties": false
@@ -675,10 +1593,15 @@
                 },
                 "additionalProperties": false
             },
-            "LOStatus_Enum": {
+            "LOStatus_Step1_Enum": {
                 "enum": [
                     "Baru",
-                    "Sokongan",
+                    "Sokongan"
+                ],
+                "type": "string"
+            },
+            "LOStatus_Step2_Enum": {
+                "enum": [
                     "TidakDisokong",
                     "Kelulusan",
                     "TidakLulus",
@@ -686,6 +1609,73 @@
                     "Pembetulan"
                 ],
                 "type": "string"
+            },
+            "Lokasi_Output": {
+                "type": "object",
+                "properties": {
+                    "kodLOKASI": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "namaLOKASI": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "objectLanjutList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ObjectLanjut_Output"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "MenuVM": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "url": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "submenu": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SubMenuVM"
+                        },
+                        "nullable": true
+                    },
+                    "showSubMenu": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ObjectLanjut_Output": {
+                "type": "object",
+                "properties": {
+                    "objectLanjutNama": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "objectLanjutCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bakiPeruntukan": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
             },
             "Pemilihan_Syarikat_Input": {
                 "type": "object",
@@ -951,6 +1941,168 @@
                 },
                 "additionalProperties": {}
             },
+            "ROAlamatSerahan_List_Output": {
+                "type": "object",
+                "properties": {
+                    "lokasi": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "namaLokasi": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RO_Detail_List_Output": {
+                "type": "object",
+                "properties": {
+                    "kod": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "keteranganKod": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amaun": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "baki": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RO_Detail_Output": {
+                "type": "object",
+                "properties": {
+                    "loNo": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "loDate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pemohon": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jawatan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jabatan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "unit": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "keterangan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amaun": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "pembekal": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pembekalAlamat1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pembekalAlamat2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pembekalAlamat3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pembekalPoskod": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pembekalNegeri": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "caraPerolehan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pegawaiPenyokong": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jawatanPenyokong": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tarikhSokong": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "catatanPenyokong": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "catatanLulus": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RO_List_Output": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "loNo": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "loDate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pemohon": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "keterangan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amaun": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "pembekal": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "RO_PembekalUpdate_Input": {
                 "type": "object",
                 "properties": {
@@ -976,12 +2128,48 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "notaLulus": {
+                    "nota": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SubMenuVM": {
+                "type": "object",
+                "properties": {
+                    "title": {
                         "type": "string",
                         "nullable": true
                     },
-                    "status": {
-                        "$ref": "#/components/schemas/LOStatus_Enum"
+                    "icon": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "url": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Unit_Output": {
+                "type": "object",
+                "properties": {
+                    "kodUnit": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "namaUnit": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lokasiList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Lokasi_Output"
+                        },
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
