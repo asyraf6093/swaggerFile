@@ -1,0 +1,1003 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MyProcument API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Dropdown/Pembekal": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Berjaya",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Dropdown_Pembekal_Output"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Tiada Data"
+          },
+          "401": {
+            "description": "Tiada Akses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dropdown/KategoriPemuitang": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/KategoriPemuitang/{Tahun}/{KodPembekal}": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "parameters": [
+          {
+            "name": "Tahun",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "KodPembekal",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/StatusPermohonan": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/Currency": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/GST": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/Dana/{GLPeriodYear}": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "parameters": [
+          {
+            "name": "GLPeriodYear",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/BakiPeruntukan/{GLPeriodYear}/{GLCode}": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "parameters": [
+          {
+            "name": "GLPeriodYear",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "GLCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/JenisItem": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/JenisItem2/{JenisItem1}": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "parameters": [
+          {
+            "name": "JenisItem1",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/Stor": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/Employee": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/EmployeeDetail/{NoStaf}": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "parameters": [
+          {
+            "name": "NoStaf",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/EmployeeByUserJabatan": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/JenisPenyelenggaraan": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/CaraPerolehan": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/Klasifikasi": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Dropdown/Negeri": {
+      "get": {
+        "tags": [
+          "Dropdown"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Login/Nama": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Login/Token": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutoLogin_Input"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutoLogin_Input"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutoLogin_Input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RO/List": {
+      "get": {
+        "tags": [
+          "RO"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RO/ListSokongan": {
+      "get": {
+        "tags": [
+          "RO"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RO/ListKelulusan": {
+      "get": {
+        "tags": [
+          "RO"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RO/Detail/{ID}": {
+      "get": {
+        "tags": [
+          "RO"
+        ],
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RO/DetailByLONo/{LONo}": {
+      "get": {
+        "tags": [
+          "RO"
+        ],
+        "parameters": [
+          {
+            "name": "LONo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RO/Status": {
+      "put": {
+        "tags": [
+          "RO"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RO_StatusUpdate_Input"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RO_StatusUpdate_Input"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RO_StatusUpdate_Input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RO/Pembekal": {
+      "put": {
+        "tags": [
+          "RO"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RO_PembekalUpdate_Input"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RO_PembekalUpdate_Input"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RO_PembekalUpdate_Input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RO/PemilihanSyarikat/{Status}": {
+      "post": {
+        "tags": [
+          "RO"
+        ],
+        "parameters": [
+          {
+            "name": "Status",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/LOStatus_Enum"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pemilihan_Syarikat_Input"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pemilihan_Syarikat_Input"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pemilihan_Syarikat_Input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ROAlamatSerahan/AlamatSerahanList/{LONo}": {
+      "get": {
+        "tags": [
+          "ROAlamatSerahan"
+        ],
+        "parameters": [
+          {
+            "name": "LONo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RODetail/RODetailList/{LONo}": {
+      "get": {
+        "tags": [
+          "RODetail"
+        ],
+        "parameters": [
+          {
+            "name": "LONo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ROInventory/ROInventoryList/{LONo}": {
+      "get": {
+        "tags": [
+          "ROInventory"
+        ],
+        "parameters": [
+          {
+            "name": "LONo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AutoLogin_Input": {
+        "type": "object",
+        "properties": {
+          "noKPEncrypted": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dropdown_Pembekal_Output": {
+        "type": "object",
+        "properties": {
+          "kodPembekal": {
+            "type": "string",
+            "nullable": true
+          },
+          "namaPembekal": {
+            "type": "string",
+            "nullable": true
+          },
+          "kategoriPemiutang": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dropdown_String_VM"
+            },
+            "nullable": true
+          },
+          "alamat1": {
+            "type": "string",
+            "nullable": true
+          },
+          "alamat2": {
+            "type": "string",
+            "nullable": true
+          },
+          "alamat3": {
+            "type": "string",
+            "nullable": true
+          },
+          "poskod": {
+            "type": "string",
+            "nullable": true
+          },
+          "negeri": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dropdown_String_VM": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LOStatus_Enum": {
+        "enum": [
+          "Baru",
+          "Sokongan",
+          "TidakDisokong",
+          "Kelulusan",
+          "TidakLulus",
+          "Lulus",
+          "Pembetulan"
+        ],
+        "type": "string"
+      },
+      "Pemilihan_Syarikat_Input": {
+        "type": "object",
+        "properties": {
+          "noRujukan": {
+            "type": "string",
+            "nullable": true
+          },
+          "noPermohonan": {
+            "type": "string",
+            "nullable": true
+          },
+          "tarikhPermohonan": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "namaPemohon": {
+            "type": "string",
+            "nullable": true
+          },
+          "noStaff": {
+            "type": "string",
+            "nullable": true
+          },
+          "bahagian": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "type": "string",
+            "nullable": true
+          },
+          "lokasi": {
+            "type": "string",
+            "nullable": true
+          },
+          "caraPerolehan": {
+            "type": "string",
+            "nullable": true
+          },
+          "tujuanPembelian": {
+            "type": "string",
+            "nullable": true
+          },
+          "namaPembekal": {
+            "type": "string",
+            "nullable": true
+          },
+          "kodPemiutang": {
+            "type": "string",
+            "nullable": true
+          },
+          "kategoriPemiutang": {
+            "type": "string",
+            "nullable": true
+          },
+          "matawang": {
+            "type": "string",
+            "nullable": true
+          },
+          "kadarPertukaran": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "stor": {
+            "type": "string",
+            "nullable": true
+          },
+          "alamat1": {
+            "type": "string",
+            "nullable": true
+          },
+          "alamat2": {
+            "type": "string",
+            "nullable": true
+          },
+          "alamat3": {
+            "type": "string",
+            "nullable": true
+          },
+          "poskod": {
+            "type": "string",
+            "nullable": true
+          },
+          "negeri": {
+            "type": "string",
+            "nullable": true
+          },
+          "alamatSerahan1": {
+            "type": "string",
+            "nullable": true
+          },
+          "alamatSerahan2": {
+            "type": "string",
+            "nullable": true
+          },
+          "alamatSerahan3": {
+            "type": "string",
+            "nullable": true
+          },
+          "poskodSerahan": {
+            "type": "string",
+            "nullable": true
+          },
+          "negeriSerahan": {
+            "type": "string",
+            "nullable": true
+          },
+          "amaunAnggaran": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amaunDipohon": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "penyokong": {
+            "type": "string",
+            "nullable": true
+          },
+          "maklumatItemList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pemilihan_Syarikat_MaklumatItem"
+            },
+            "nullable": true
+          },
+          "maklumatPeruntukanList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pemilihan_Syarikat_MaklumatPeruntukan"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Pemilihan_Syarikat_MaklumatItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "bil": {
+            "type": "string",
+            "nullable": true
+          },
+          "tujuan": {
+            "type": "string",
+            "nullable": true
+          },
+          "klasifikasi": {
+            "type": "string",
+            "nullable": true
+          },
+          "jenisItem": {
+            "type": "string",
+            "nullable": true
+          },
+          "jenisItem2": {
+            "type": "string",
+            "nullable": true
+          },
+          "stor": {
+            "type": "string",
+            "nullable": true
+          },
+          "kodCukai": {
+            "type": "string",
+            "nullable": true
+          },
+          "kuantiti": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hargaSeunit": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "diskaunSeunit": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Pemilihan_Syarikat_MaklumatPeruntukan": {
+        "type": "object",
+        "properties": {
+          "kodAkaun": {
+            "type": "string",
+            "nullable": true
+          },
+          "dana": {
+            "type": "string",
+            "nullable": true
+          },
+          "bahagian": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "type": "string",
+            "nullable": true
+          },
+          "objekLanjut": {
+            "type": "string",
+            "nullable": true
+          },
+          "lokasi": {
+            "type": "string",
+            "nullable": true
+          },
+          "tanggunganCukai": {
+            "type": "string",
+            "nullable": true
+          },
+          "bakiPeruntukan": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amaun": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "RO_PembekalUpdate_Input": {
+        "type": "object",
+        "properties": {
+          "loNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "kodPembekal": {
+            "type": "string",
+            "nullable": true
+          },
+          "kategoriPemiutang": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RO_StatusUpdate_Input": {
+        "type": "object",
+        "properties": {
+          "loNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "notaLulus": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/LOStatus_Enum"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "X-Login-Token": {
+        "type": "apiKey",
+        "description": "Token diperlukan untuk mengakses API",
+        "name": "X-Login-Token",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "X-Login-Token": [ ]
+    }
+  ]
+}
