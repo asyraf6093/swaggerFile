@@ -5,6 +5,65 @@
         "version": "v1"
     },
     "paths": {
+        "/api/Akaun/Nama": {
+            "get": {
+                "tags": [
+                    "Akaun"
+                ],
+                "summary": "Nama Pengguna semasa.",
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Akaun/Token": {
+            "post": {
+                "tags": [
+                    "Akaun"
+                ],
+                "summary": "Token dan Menu untuk Log Masuk Pengguna.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AutoLogin_Input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AutoLogin_Output"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/Dropdown/Pembekal": {
             "get": {
                 "tags": [
@@ -87,7 +146,7 @@
                     {
                         "name": "Tahun",
                         "in": "path",
-                        "description": "Period Year.",
+                        "description": "Tahun GL",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -470,23 +529,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -502,17 +545,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -532,23 +565,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -564,17 +581,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -604,17 +611,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Dropdown_EmployeeDetail_Output"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Dropdown_EmployeeDetail_Output"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Dropdown_EmployeeDetail_Output"
                                 }
@@ -627,17 +624,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -657,23 +644,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -689,17 +660,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -719,23 +680,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -751,17 +696,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -781,23 +716,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -813,17 +732,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -843,23 +752,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Dropdown_String_VM"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -875,78 +768,9 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/Login/Nama": {
-            "get": {
-                "tags": [
-                    "Login"
-                ],
-                "summary": "Nama Pengguna semasa.",
-                "responses": {
-                    "200": {
-                        "description": "Berjaya",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Tiada Akses",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/Login/Token": {
-            "post": {
-                "tags": [
-                    "Login"
-                ],
-                "summary": "Token dan Menu untuk Log Masuk Pengguna.",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/AutoLogin_Input"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Berjaya",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/AutoLogin_Output"
                                 }
                             }
                         }
@@ -1295,7 +1119,7 @@
                 }
             }
         },
-        "/api/ROAlamatSerahan/AlamatSerahanList/{LONo}": {
+        "/api/ROAlamatSerahan/AlamatSerahanList/{NoLo}": {
             "get": {
                 "tags": [
                     "ROAlamatSerahan"
@@ -1303,7 +1127,7 @@
                 "summary": "Senarai Nama dan Lokasi Alamat Serahan.",
                 "parameters": [
                     {
-                        "name": "LONo",
+                        "name": "NoLo",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1582,11 +1406,11 @@
             "Dropdown_String_VM": {
                 "type": "object",
                 "properties": {
-                    "name": {
+                    "nama": {
                         "type": "string",
                         "nullable": true
                     },
-                    "value": {
+                    "kod": {
                         "type": "string",
                         "nullable": true
                     }
@@ -1662,11 +1486,11 @@
             "ObjectLanjut_Output": {
                 "type": "object",
                 "properties": {
-                    "objectLanjutNama": {
+                    "namaObjectLanjut": {
                         "type": "string",
                         "nullable": true
                     },
-                    "objectLanjutCode": {
+                    "kodObjectLanjut": {
                         "type": "string",
                         "nullable": true
                     },
@@ -1982,11 +1806,11 @@
             "RO_Detail_Output": {
                 "type": "object",
                 "properties": {
-                    "loNo": {
+                    "noLO": {
                         "type": "string",
                         "nullable": true
                     },
-                    "loDate": {
+                    "tarikhLO": {
                         "type": "string",
                         "nullable": true
                     },
@@ -2072,11 +1896,11 @@
                         "type": "string",
                         "format": "uuid"
                     },
-                    "loNo": {
+                    "noLO": {
                         "type": "string",
                         "nullable": true
                     },
-                    "loDate": {
+                    "tarikhLO": {
                         "type": "string",
                         "nullable": true
                     },
@@ -2106,7 +1930,7 @@
             "RO_PembekalUpdate_Input": {
                 "type": "object",
                 "properties": {
-                    "loNo": {
+                    "noLO": {
                         "type": "string",
                         "nullable": true
                     },
@@ -2124,7 +1948,7 @@
             "RO_StatusUpdate_Input": {
                 "type": "object",
                 "properties": {
-                    "loNo": {
+                    "noLO": {
                         "type": "string",
                         "nullable": true
                     },
