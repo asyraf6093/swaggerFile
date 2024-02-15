@@ -5,43 +5,15 @@
         "version": "v1"
     },
     "paths": {
-        "/api/AP_RO/Find/{IDList}": {
-            "get": {
+        "/api/AP_RO/Find": {
+            "post": {
                 "tags": [
                     "AP_RO"
                 ],
                 "summary": "Senarai RO mengikut senarai ID.",
-                "parameters": [
-                    {
-                        "name": "IDList",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
                             "schema": {
                                 "type": "array",
                                 "items": {
@@ -117,17 +89,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -137,17 +99,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -173,24 +125,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -198,23 +132,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -230,17 +148,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -250,17 +158,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -270,22 +168,12 @@
                 }
             }
         },
-        "/api/AP_RODETAIL/Find/{IDList}": {
-            "get": {
+        "/api/AP_RODETAIL/Find": {
+            "post": {
                 "tags": [
                     "AP_RODETAIL"
                 ],
                 "summary": "Senarai RODETAIL mengikut senarai ID.",
-                "parameters": [
-                    {
-                        "name": "IDList",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -296,24 +184,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -321,23 +191,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_RODETAIL"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_RODETAIL"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -353,17 +207,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -373,17 +217,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -418,17 +252,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -438,17 +262,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -474,24 +288,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -499,23 +295,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -531,17 +311,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -551,17 +321,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -571,22 +331,12 @@
                 }
             }
         },
-        "/api/AP_RODETAILTEMP/Find/{IDList}": {
-            "get": {
+        "/api/AP_RODETAILTEMP/Find": {
+            "post": {
                 "tags": [
                     "AP_RODETAILTEMP"
                 ],
                 "summary": "Senarai RODETAILTEMP mengikut senarai ID.",
-                "parameters": [
-                    {
-                        "name": "IDList",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -597,24 +347,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -622,23 +354,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_RODETAILTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_RODETAILTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -654,17 +370,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -674,17 +380,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -719,17 +415,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -739,17 +425,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -775,24 +451,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -800,23 +458,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -832,17 +474,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -852,17 +484,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -872,22 +494,12 @@
                 }
             }
         },
-        "/api/AP_ROINVENTORY/Find/{IDList}": {
-            "get": {
+        "/api/AP_ROINVENTORY/Find": {
+            "post": {
                 "tags": [
                     "AP_ROINVENTORY"
                 ],
                 "summary": "Senarai ROINVENTORY mengikut senarai ID.",
-                "parameters": [
-                    {
-                        "name": "IDList",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -898,24 +510,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -923,23 +517,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROINVENTORY"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROINVENTORY"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -955,17 +533,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -975,17 +543,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1020,17 +578,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1040,17 +588,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1076,24 +614,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -1101,23 +621,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -1133,17 +637,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1153,17 +647,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1173,22 +657,12 @@
                 }
             }
         },
-        "/api/AP_ROINVENTORYTEMP/Find/{IDList}": {
-            "get": {
+        "/api/AP_ROINVENTORYTEMP/Find": {
+            "post": {
                 "tags": [
                     "AP_ROINVENTORYTEMP"
                 ],
                 "summary": "Senarai ROINVENTORYTEMP mengikut senarai ID.",
-                "parameters": [
-                    {
-                        "name": "IDList",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -1199,24 +673,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -1224,23 +680,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROINVENTORYTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROINVENTORYTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -1256,17 +696,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1276,17 +706,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1321,17 +741,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1341,17 +751,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1377,24 +777,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -1402,23 +784,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -1434,17 +800,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1454,17 +810,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1474,22 +820,12 @@
                 }
             }
         },
-        "/api/AP_ROTEMP/Find/{IDList}": {
-            "get": {
+        "/api/AP_ROTEMP/Find": {
+            "post": {
                 "tags": [
                     "AP_ROTEMP"
                 ],
                 "summary": "Senarai ROTEMP mengikut senarai ID.",
-                "parameters": [
-                    {
-                        "name": "IDList",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -1500,24 +836,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -1525,23 +843,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -1557,17 +859,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1577,17 +869,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1622,17 +904,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1642,17 +914,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1678,24 +940,6 @@
                                     "format": "uuid"
                                 }
                             }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "format": "uuid"
-                                }
-                            }
                         }
                     }
                 },
@@ -1703,23 +947,7 @@
                     "200": {
                         "description": "Berjaya",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AP_ROTEMP"
-                                    }
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -1735,17 +963,7 @@
                     "400": {
                         "description": "Permintaan tidak sah",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1755,17 +973,7 @@
                     "401": {
                         "description": "Tiada Akses",
                         "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
