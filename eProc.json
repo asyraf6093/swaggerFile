@@ -591,7 +591,7 @@
                 }
             }
         },
-        "/api/Dropdown/PekerjaLokasi/{NoStaf}": {
+        "/api/Dropdown/LokasiByNoStaf/{NoStaf}": {
             "get": {
                 "tags": [
                     "Dropdown"
@@ -886,7 +886,7 @@
                 }
             }
         },
-        "/api/RO/Detail/{ID}": {
+        "/api/RO/Maklumat/{ID}": {
             "get": {
                 "tags": [
                     "RO"
@@ -930,7 +930,7 @@
                 }
             }
         },
-        "/api/RO/DetailByLONo/{NoLO}": {
+        "/api/RO/MaklumatByNoLO/{NoLO}": {
             "get": {
                 "tags": [
                     "RO"
@@ -1165,7 +1165,7 @@
                 }
             }
         },
-        "/api/RODetail/SenaraiRODetail/{NoLo}": {
+        "/api/RODetail/Senarai/{NoLo}": {
             "get": {
                 "tags": [
                     "RODetail"
@@ -1211,7 +1211,7 @@
                 }
             }
         },
-        "/api/ROInventory/SenaraiROInventory/{NoLo}": {
+        "/api/ROInventory/Senarai/{NoLo}": {
             "get": {
                 "tags": [
                     "ROInventory"
