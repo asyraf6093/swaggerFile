@@ -1,0 +1,3213 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "MyProcument Test API",
+        "version": "v1"
+    },
+    "paths": {
+        "/api/AP_RO/Find/{IDList}": {
+            "get": {
+                "tags": [
+                    "AP_RO"
+                ],
+                "summary": "Senarai RO mengikut senarai ID.",
+                "parameters": [
+                    {
+                        "name": "IDList",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_RO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_RO/Insert": {
+            "post": {
+                "tags": [
+                    "AP_RO"
+                ],
+                "summary": "Tambah RO.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AP_RO"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_RO/Remove": {
+            "delete": {
+                "tags": [
+                    "AP_RO"
+                ],
+                "summary": "Hapus RO mengikut senarai ID.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_RODETAIL/Find/{IDList}": {
+            "get": {
+                "tags": [
+                    "AP_RODETAIL"
+                ],
+                "summary": "Senarai RODETAIL mengikut senarai ID.",
+                "parameters": [
+                    {
+                        "name": "IDList",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_RODETAIL"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_RODETAIL"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_RODETAIL"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_RODETAIL/Insert": {
+            "post": {
+                "tags": [
+                    "AP_RODETAIL"
+                ],
+                "summary": "Tambah RODETAIL.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AP_RODETAIL"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_RODETAIL/Remove": {
+            "delete": {
+                "tags": [
+                    "AP_RODETAIL"
+                ],
+                "summary": "Hapus RODETAIL mengikut senarai ID.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_RODETAILTEMP/Find/{IDList}": {
+            "get": {
+                "tags": [
+                    "AP_RODETAILTEMP"
+                ],
+                "summary": "Senarai RODETAILTEMP mengikut senarai ID.",
+                "parameters": [
+                    {
+                        "name": "IDList",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_RODETAILTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_RODETAILTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_RODETAILTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_RODETAILTEMP/Insert": {
+            "post": {
+                "tags": [
+                    "AP_RODETAILTEMP"
+                ],
+                "summary": "Tambah RODETAILTEMP.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AP_RODETAILTEMP"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_RODETAILTEMP/Remove": {
+            "delete": {
+                "tags": [
+                    "AP_RODETAILTEMP"
+                ],
+                "summary": "Hapus RODETAILTEMP mengikut senarai ID.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROINVENTORY/Find/{IDList}": {
+            "get": {
+                "tags": [
+                    "AP_ROINVENTORY"
+                ],
+                "summary": "Senarai ROINVENTORY mengikut senarai ID.",
+                "parameters": [
+                    {
+                        "name": "IDList",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROINVENTORY"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROINVENTORY"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROINVENTORY"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROINVENTORY/Insert": {
+            "post": {
+                "tags": [
+                    "AP_ROINVENTORY"
+                ],
+                "summary": "Tambah ROINVENTORY.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AP_ROINVENTORY"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROINVENTORY/Remove": {
+            "delete": {
+                "tags": [
+                    "AP_ROINVENTORY"
+                ],
+                "summary": "Hapus ROINVENTORY mengikut senarai ID.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROINVENTORYTEMP/Find/{IDList}": {
+            "get": {
+                "tags": [
+                    "AP_ROINVENTORYTEMP"
+                ],
+                "summary": "Senarai ROINVENTORYTEMP mengikut senarai ID.",
+                "parameters": [
+                    {
+                        "name": "IDList",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROINVENTORYTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROINVENTORYTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROINVENTORYTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROINVENTORYTEMP/Insert": {
+            "post": {
+                "tags": [
+                    "AP_ROINVENTORYTEMP"
+                ],
+                "summary": "Tambah ROINVENTORYTEMP.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AP_ROINVENTORYTEMP"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROINVENTORYTEMP/Remove": {
+            "delete": {
+                "tags": [
+                    "AP_ROINVENTORYTEMP"
+                ],
+                "summary": "Hapus ROINVENTORYTEMP mengikut senarai ID.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROTEMP/Find/{IDList}": {
+            "get": {
+                "tags": [
+                    "AP_ROTEMP"
+                ],
+                "summary": "Senarai ROTEMP mengikut senarai ID.",
+                "parameters": [
+                    {
+                        "name": "IDList",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROTEMP/Insert": {
+            "post": {
+                "tags": [
+                    "AP_ROTEMP"
+                ],
+                "summary": "Tambah ROTEMP.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AP_ROTEMP"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/AP_ROTEMP/Remove": {
+            "delete": {
+                "tags": [
+                    "AP_ROTEMP"
+                ],
+                "summary": "Hapus ROTEMP mengikut senarai ID.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AP_ROTEMP"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Login/GetToken/{IC}": {
+            "get": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Token mengikut IC (untuk pengujian sahaja).",
+                "parameters": [
+                    {
+                        "name": "IC",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Berjaya",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Tiada Data"
+                    },
+                    "400": {
+                        "description": "Permintaan tidak sah",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Tiada Akses",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AP_RO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "rorefno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "localorderno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "localorderdate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "localordertype": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "localorderdesc": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "creditortype": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "creditorcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "totalamount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "addresS1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addresS2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addresS3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "poscode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "caddresS1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "caddresS2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "caddresS3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cposcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cstate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "existingbudget": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "requestedamount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "currentbudget": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "approved": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "approveddate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "approvedby": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "requestno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "contractno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "deliverydate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "department": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lostatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "inprocess": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "staffid": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sysusercreated": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sysdatecreated": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syslastmodified": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syslastuser": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "syspostdate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syspostuser": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "prnflag": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "docstatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "prN_ORIG": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "prN_COPY": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bankcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bankacctno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "loserialno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "staffname": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "newcreditor": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fund": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jabatan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ptj": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pengesahan": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "peG_SAH": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tarikH_SAH": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "kelulusan": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "peG_LULUS": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tarikH_LULUS": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notE_SAH": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notE_LULUS": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "penyemak": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tarikH_SEMAK": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "statuS_SEMAK": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notE_SEMAK": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "total": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "totaltax": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "glcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "peG_SOKONG": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pegjabataN_LULUS": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amaun": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "caraperolehan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "hR_BAHAGIAN": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "hR_JABATAN": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "hR_UNIT": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statuS_RO": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusupp": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lokasiserahan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notel": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "companY_ID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bahagian": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "thantar": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notasokong": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tsokongan": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notajabatan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tJabatan_Lulus": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notaKewangan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notaStatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permissionStatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permissionStaff": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permissionNote": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permissionDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "receive_Staff": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "receive_Note": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "receivedDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "tpegupP1": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "pegupP1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tpegupP2": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "pegupP2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tpegupP3": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "pegupP3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "takhirperingatan": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "tkewangaN_LULUS": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "pegkewangaN_LULUS": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "peG_PEMBETULAN": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notA_PEMBETULAN": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "daerah": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "localOrderDetails": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sebab": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "currencycode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "currencyrate": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "jawatanpemohon": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jawatanpenyokong": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jawatanpelulus": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AP_RODETAIL": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "localorderno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "glcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "gldesc": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "amountpaid": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "baki": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "bakiparaS2": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "sysusercreated": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sysdatecreated": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syslastmodified": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syslastuser": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bakivot": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "noauto": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "gltaxclaim": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AP_RODETAILTEMP": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "localorderno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "glcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "gldesc": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "amountpaid": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "baki": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "bakiparaS2": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "sysusercreated": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sysdatecreated": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syslastmodified": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syslastuser": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bakivot": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "noauto": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "gltaxclaim": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AP_ROINVENTORY": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "localorderno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "productid": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "productdesc": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "taxcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "unitprice": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "totalprice": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "taxrate": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "taxamount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "roW_ID": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "glcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "gldesc": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amountpaid": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "classification": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "itemtype": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assetserialno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "noauto": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "unitpricE_OTHER": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "totalpricE_OTHER": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "stokitemno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "discountamount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "taxamounT_OTHER": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "discountamounT_OTHER": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AP_ROINVENTORYTEMP": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "localorderno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "productid": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "productdesc": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "taxcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "unitprice": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "totalprice": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "taxrate": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "taxamount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "roW_ID": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "glcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "gldesc": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amountpaid": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "classification": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "itemtype": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assetserialno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "noauto": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "unitpricE_OTHER": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "totalpricE_OTHER": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "stokitemno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "discountamount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "taxamounT_OTHER": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "discountamounT_OTHER": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AP_ROTEMP": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "rorefno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "localorderno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "localorderdate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "localordertype": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "localorderdesc": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "creditortype": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "creditorcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "totalamount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "addresS1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addresS2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addresS3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "poscode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "caddresS1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "caddresS2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "caddresS3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cposcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cstate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "existingbudget": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "requestedamount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "currentbudget": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "approved": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "approveddate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "approvedby": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "requestno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "contractno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "deliverydate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "department": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lostatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "inprocess": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "staffid": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sysusercreated": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sysdatecreated": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syslastmodified": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syslastuser": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "syspostdate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "syspostuser": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "prnflag": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "docstatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "prN_ORIG": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "prN_COPY": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bankcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bankacctno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "loserialno": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "staffname": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "newcreditor": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fund": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jabatan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ptj": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pengesahan": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "peG_SAH": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tarikH_SAH": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "kelulusan": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "peG_LULUS": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tarikH_LULUS": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notE_SAH": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notE_LULUS": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "penyemak": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tarikH_SEMAK": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "statuS_SEMAK": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notE_SEMAK": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "total": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "totaltax": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "glcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "peG_SOKONG": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pegjabataN_LULUS": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amaun": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "caraperolehan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "hR_BAHAGIAN": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "hR_JABATAN": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "hR_UNIT": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statuS_RO": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusupp": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lokasiserahan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notel": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "companY_ID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bahagian": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "thantar": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notasokong": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tsokongan": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notajabatan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tJabatan_Lulus": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notaKewangan": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notaStatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permissionStatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permissionStaff": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permissionNote": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permissionDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "receive_Staff": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "receive_Note": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "receivedDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "tpegupP1": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "pegupP1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tpegupP2": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "pegupP2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tpegupP3": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "pegupP3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "takhirperingatan": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "tkewangaN_LULUS": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "pegkewangaN_LULUS": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "peG_PEMBETULAN": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notA_PEMBETULAN": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "daerah": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "localOrderDetails": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sebab": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "currencycode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "currencyrate": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "jawatanpemohon": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jawatanpenyokong": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "jawatanpelulus": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ProblemDetails": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "detail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "instance": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": {}
+            }
+        },
+        "securitySchemes": {
+            "BasicAuth": {
+                "type": "http",
+                "description": "Basic HTTP Authentication",
+                "scheme": "basic"
+            }
+        }
+    },
+    "security": [
+        {
+            "BasicAuth": []
+        }
+    ]
+}
